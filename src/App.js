@@ -1,7 +1,9 @@
 import React, { useRef, useLayoutEffect, useEffect } from "react";
-import Navbar from "./components/NavbarBlurred";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
+import SingIn from "./pages/SignIn";
+import SingUp from "./pages/SignUp";
+import MdpOublie from "./pages/MdpOublie";
 import { createRoot } from "react-dom/client";
 import {
   createBrowserRouter,
@@ -18,6 +20,18 @@ const router = createBrowserRouter([
   {
     path: "/profile",
     element: <Profile />,
+  },
+  {
+    path: "/signin",
+    element: <SingIn />,
+  },
+  {
+    path: "/signup",
+    element: <SingUp />,
+  },
+  {
+    path: "/resetmdp",
+    element: <MdpOublie />,
   },
 ]);
 
