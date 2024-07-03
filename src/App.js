@@ -1,5 +1,5 @@
 import React, { useRef, useLayoutEffect, useEffect } from "react";
-import Home from "./pages/Home";
+import Dashboard from "./pages/Dashboard";
 import Profile from "./pages/Profile";
 import SingIn from "./pages/SignIn";
 import SingUp from "./pages/SignUp";
@@ -15,7 +15,7 @@ import {
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <Dashboard />,
   },
   {
     path: "/profile",
