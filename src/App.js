@@ -1,16 +1,14 @@
-import React, { useRef, useLayoutEffect, useEffect } from "react";
-import Dashboard from "./pages/Dashboard";
-import Profile from "./pages/Profile";
-import SingIn from "./pages/SignIn";
-import SingUp from "./pages/SignUp";
-import MdpOublie from "./pages/MdpOublie";
+import React from "react";
 import { createRoot } from "react-dom/client";
 import {
   createBrowserRouter,
   RouterProvider,
-  Route,
-  Link,
 } from "react-router-dom";
+import Dashboard from "./pages/Dashboard";
+import Profile from "./pages/Profile";
+import SignIn from "./pages/SignIn";
+import SignUp from "./pages/SignUp";
+import MdpOublie from "./pages/MdpOublie";
 
 const router = createBrowserRouter([
   {
@@ -23,11 +21,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/signin",
-    element: <SingIn />,
+    element: <SignIn />,
   },
   {
     path: "/signup",
-    element: <SingUp />,
+    element: <SignUp />,
   },
   {
     path: "/resetmdp",
@@ -35,10 +33,8 @@ const router = createBrowserRouter([
   },
 ]);
 
-createRoot(document.getElementById("root")).render(
-  <RouterProvider router={router} />
-);
-
-export default function App() {
+function App() {
   return <RouterProvider router={router} />;
 }
+
+export default App;

@@ -1,11 +1,32 @@
+// src/pages/SignIn.js
 import { useState } from "react";
-
 import { Typography, Input, Button } from "@material-tailwind/react";
 import { EyeSlashIcon, EyeIcon } from "@heroicons/react/24/solid";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../model/firebase.config";
+import { useNavigate } from "react-router-dom";
 
-export function Basic() {
+export default function SignIn() {
   const [passwordShown, setPasswordShown] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const navigate = useNavigate();
+
   const togglePasswordVisiblity = () => setPasswordShown((cur) => !cur);
+
+  const handleSignIn = async (e) => {
+    e.preventDefault();
+    setError('');
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      console.log('User signed in:', userCredential.user);
+      navigate('/'); // Redirige l'utilisateur vers la page d'accueil après la connexion
+    } catch (error) {
+      console.error('Error signing in:', error);
+      setError(error.message);
+    }
+  };
 
   return (
     <section className="grid text-center h-screen items-center p-8">
@@ -16,7 +37,7 @@ export function Basic() {
         <Typography className="mb-16 text-gray-600 font-normal text-[18px]">
           Entrez votre email et votre mot de passe pour vous connecter
         </Typography>
-        <form action="#" className="mx-auto max-w-[24rem] text-left">
+        <form onSubmit={handleSignIn} className="mx-auto max-w-[24rem] text-left">
           <div className="mb-6">
             <label htmlFor="email">
               <Typography
@@ -37,6 +58,9 @@ export function Basic() {
               labelProps={{
                 className: "hidden",
               }}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
             />
           </div>
           <div className="mb-6">
@@ -65,9 +89,13 @@ export function Basic() {
                   )}
                 </i>
               }
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
             />
           </div>
-          <Button color="gray" size="lg" className="mt-6" fullWidth>
+          {error && <p className="text-red-500 text-sm">{error}</p>}
+          <Button type="submit" color="gray" size="lg" className="mt-6" fullWidth>
             Se connecter
           </Button>
           <div className="!mt-4 flex justify-end">
@@ -87,7 +115,7 @@ export function Basic() {
             className="!mt-4 text-center font-normal"
           >
             Pas encore inscrit?{" "}
-            <a href="#" className="font-medium text-gray-900">
+            <a href="/signup" className="font-medium text-gray-900">
               Créer un compte
             </a>
           </Typography>
@@ -96,5 +124,3 @@ export function Basic() {
     </section>
   );
 }
-
-export default Basic;

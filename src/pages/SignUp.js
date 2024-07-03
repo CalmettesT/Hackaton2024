@@ -1,22 +1,41 @@
+// src/pages/SignUp.js
 import { useState } from "react";
-
 import { Typography, Input, Button } from "@material-tailwind/react";
 import { EyeSlashIcon, EyeIcon } from "@heroicons/react/24/solid";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../model/firebase.config";
 
-export function Basic() {
+export default function SignUp() {
   const [passwordShown, setPasswordShown] = useState(false);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+
   const togglePasswordVisiblity = () => setPasswordShown((cur) => !cur);
+
+  const handleSignUp = async (e) => {
+    e.preventDefault();
+    setError('');
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      console.log('User created:', userCredential.user);
+      // Vous pouvez rediriger l'utilisateur ou afficher un message de succès ici
+    } catch (error) {
+      console.error('Error signing up:', error);
+      setError(error.message);
+    }
+  };
 
   return (
     <section className="grid text-center h-screen items-center p-8">
       <div>
         <Typography variant="h3" color="blue-gray" className="mb-2">
-          Inscrivez vous
+          Inscrivez-vous
         </Typography>
         <Typography className="mb-16 text-gray-600 font-normal text-[18px]">
           Entrez votre email et votre mot de passe pour vous inscrire
         </Typography>
-        <form action="#" className="mx-auto max-w-[24rem] text-left">
+        <form onSubmit={handleSignUp} className="mx-auto max-w-[24rem] text-left">
           <div className="mb-6">
             <label htmlFor="email">
               <Typography
@@ -37,6 +56,9 @@ export function Basic() {
               labelProps={{
                 className: "hidden",
               }}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
             />
           </div>
           <div className="mb-6">
@@ -65,10 +87,14 @@ export function Basic() {
                   )}
                 </i>
               }
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
             />
           </div>
-          <Button color="gray" size="lg" className="mt-6" fullWidth>
-            Se connecter
+          {error && <p className="text-red-500 text-sm">{error}</p>}
+          <Button type="submit" color="gray" size="lg" className="mt-6" fullWidth>
+            Créer un compte
           </Button>
           <div className="!mt-4 flex justify-end">
             <Typography
@@ -86,9 +112,9 @@ export function Basic() {
             color="gray"
             className="!mt-4 text-center font-normal"
           >
-            Pas encore inscrit?{" "}
+            Déjà inscrit?{" "}
             <a href="#" className="font-medium text-gray-900">
-              Créer un compte
+              Se connecter
             </a>
           </Typography>
         </form>
@@ -96,5 +122,3 @@ export function Basic() {
     </section>
   );
 }
-
-export default Basic;
