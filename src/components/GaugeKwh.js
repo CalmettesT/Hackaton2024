@@ -53,7 +53,7 @@ function GaugeDescription(data) {
     const value = data.value;
     return (
         <div class="text-center">
-            {value} KW/h
+            <b>{value}</b> KW/h
         </div>
     );
 }
