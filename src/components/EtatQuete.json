@@ -1,0 +1,15 @@
+[
+    { "id": 1, "title": "Éteindre toutes les lumières inutiles pendant une heure", "points": 10, "progress": 10 },
+    { "id": 2, "title": "Réduire la consommation d'électricité de 10% ce mois-ci", "points": 20, "progress": 20 },
+    { "id": 3, "title": "Éteindre complètement les appareils électroniques en veille la nuit", "points": 15, "progress": 15 },
+    { "id": 4, "title": "Installer des prises intelligentes pour couper l'alimentation des appareils en veille", "points": 10, "progress": 10 },
+    { "id": 5, "title": "Utiliser des ampoules LED dans toutes les pièces de la maison", "points": 15, "progress": 15 },
+    { "id": 6, "title": "Configurer des timers sur les appareils pour limiter leur temps de fonctionnement", "points": 20, "progress": 20 },
+    { "id": 7, "title": "Participer à une journée sans climatisation en utilisant des méthodes naturelles pour réguler la température intérieure", "points": 10, "progress": 10 },
+    { "id": 8, "title": "Éteindre les appareils de chauffage ou de refroidissement lorsqu'ils ne sont pas nécessaires", "points": 10, "progress": 10 },
+    { "id": 9, "title": "Utiliser des rideaux épais pour isoler les fenêtres en hiver et réduire la déperdition de chaleur", "points": 15, "progress": 15 },
+    { "id": 10, "title": "Planifier et optimiser les activités de lessive pour minimiser l'utilisation de l'eau chaude", "points": 15, "progress": 15 },
+    { "id": 11, "title": "Réduire la consommation d'électricité en utilisant des appareils énergétiquement efficaces", "points": 20, "progress": 50 },
+    { "id": 12, "title": "Participer à un programme de sensibilisation sur la conservation de l'énergie dans la communauté", "points": 30, "progress": 2 }
+  ]
+  

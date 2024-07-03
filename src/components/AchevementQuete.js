@@ -1,15 +1,18 @@
 import React from 'react';
+import QuestProgress from './ProgressionQuete';
+import './Style.css';
 
-const AchevementQuete = () => {
+function App() {
   return (
-    <div>
-         [
-
-
-
-
+    <div className="App">
+      <header className="App-header">
+        <h1>Avancement des quêtes</h1>
+      </header>
+      <main>
+        <QuestProgress />
+      </main>
     </div>
   );
-};
+}
 
-export default AchevementQuete;
+export default App;
