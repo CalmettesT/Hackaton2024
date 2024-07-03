@@ -65,8 +65,8 @@ export function NavbarBlurred() {
   }, []);
 
   return (
-    <div className="h-full min-h-screen bg-[url('https://www.material-tailwind.com/img/bg-reset.avif')] p-4">
-      <Navbar className="mx-auto">
+    <div className="h-full p-4 bg-gray-100"> {/* Removed background image */}
+      <Navbar className="mx-auto fixed top-4 left-0 right-0 bg-transparent shadow-none z-10"> {/* Added top margin and z-index */}
         <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
           <Typography
             as="a"

@@ -15,7 +15,7 @@ const Navbar = () => {
   const [active, setActive] = useState('home');
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200">
+    <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-10">
       <div className="flex justify-around items-center h-16">
         <NavItem
           icon={active === 'notifications' ? <BellAlertIconSolid className="h-6 w-6 text-gray-600" /> : <BellAlertIconOutline className="h-6 w-6 text-gray-600" />}

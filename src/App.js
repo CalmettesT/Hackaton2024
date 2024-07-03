@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useRef, useLayoutEffect, useEffect } from "react";
+import Dashboard from "./pages/Dashboard";
+import Profile from "./pages/Profile";
+// import SingIn from "./pages/SignIn";
+// import SingUp from "./pages/SignUp";
+import Home from "./pages/Home";
+import MdpOublie from "./pages/MdpOublie";
 import { createRoot } from "react-dom/client";
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import Dashboard from "./pages/Dashboard";
-import Profile from "./pages/Profile";
+// import Dashboard from "./pages/Dashboard";
+// import Profile from "./pages/Profile";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
-import MdpOublie from "./pages/MdpOublie";
+// import MdpOublie from "./pages/MdpOublie";
 
 const router = createBrowserRouter([
   {
@@ -31,10 +37,14 @@ const router = createBrowserRouter([
     path: "/resetmdp",
     element: <MdpOublie />,
   },
+  {
+    path: "/test",
+    element: <Home />,
+  },
 ]);
 
-function App() {
+
+export default function App() {
   return <RouterProvider router={router} />;
 }
 
-export default App;
