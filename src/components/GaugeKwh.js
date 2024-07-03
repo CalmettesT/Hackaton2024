@@ -32,7 +32,7 @@ function GaugePointer() {
 
 function Gauge(data) {
     const value = data.value;
-    const max = data.maxValue;
+    const max = data.max;
     return (
         <GaugeContainer
             startAngle={-90}
@@ -40,6 +40,7 @@ function Gauge(data) {
             valueMin={0}
             valueMax={max}
             value={value}
+            height={300}
         >
             <GaugeReferenceArc />
             <GaugeValueArc />
@@ -59,9 +60,9 @@ function GaugeDescription(data) {
 
 export default function GaugeKwh(data) {
     const value = data.value || 0;
-    const max = data.maxValue || 100;
+    const max = data.max || 100;
     return (
-        <div class="content-center h-1/2 w-auto mx-16">
+        <div class="content-center w-auto h-full mx-4">
             <Gauge
                 value={value}
                 max={max}

@@ -2,17 +2,16 @@ import * as React from 'react';
 import { LineChart } from '@mui/x-charts/LineChart';
 import dayjs from "dayjs";
 
-const lineChartMargins = 50;
+const lineChartMargins = 40;
 
 function DailyProdLineChart(data) {
-  const dates = [
-    new Date(2024, 4, 1),
-    new Date(2024, 4, 2),
-    new Date(2024, 4, 3),
-    new Date(2024, 4, 4),
-    new Date(2024, 4, 5),
-  ];
   const seriesData = data.series;
+  const startingDate = dayjs(data.startingDate)
+                    || dayjs(new Date()).subtract(seriesData.length, 'day').toDate();
+  const dates = [];
+  for (var i = 0; i < seriesData.length; i++) {
+    dates.unshift(startingDate.subtract(i, 'day').toDate());
+  }
   return (
     <LineChart
       xAxis={[{
@@ -46,11 +45,13 @@ function DailyProdLineChart(data) {
   );
 }
 
-export default function DailyProdChart() {
-  const data = [2, 5.5, 8, 10.5, 12];
+export default function DailyProdChart(data) {
+  const series = data.series;
+  const startingDate = data.startingDate;
   return (
     <DailyProdLineChart
-      series={data}
+      series={series}
+      startingDate={startingDate}
     />
   );
 }
