@@ -1,12 +1,17 @@
-import React, { useRef, useLayoutEffect, useEffect } from 'react';
-import Navbar from "./components/NavbarBlurred";
+import React from 'react';
 import GraphiqueConso from './components/GraphiqueConso';
-
+import GraphiqueEvolutionGagne from './components/GraphiqueEvolutionGagne';
+import pageHistorique from './pageHistorique';
 
 
 export default function App() {
 
   return (
-      <GraphiqueConso />
+    //appel du composant "GraphiqueConso" et de la page "pageHistorique"
+      <>
+        {/* <GraphiqueConso />  */}
+        {/* <GraphiqueEvolutionGagne /> */}
+        <pageHistorique/>
+      </>
   );
 }
