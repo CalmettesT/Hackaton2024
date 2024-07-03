@@ -3,6 +3,7 @@ import Dashboard from "./pages/Dashboard";
 import Profile from "./pages/Profile";
 import SingIn from "./pages/SignIn";
 import SingUp from "./pages/SignUp";
+import Home from "./pages/Home";
 import MdpOublie from "./pages/MdpOublie";
 import { createRoot } from "react-dom/client";
 import {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
   {
     path: "/resetmdp",
     element: <MdpOublie />,
+  },
+  {
+    path: "/test",
+    element: <Home />,
   },
 ]);
 
