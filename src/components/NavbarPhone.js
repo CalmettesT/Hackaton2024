@@ -40,7 +40,6 @@ const Navbar = () => {
 const NavItem = ({ icon, label, onClick }) => (
   <div className="flex flex-col items-center justify-center" onClick={onClick}>
     {icon}
-    <span className="text-xs text-gray-600">{label}</span>
   </div>
 );
 
