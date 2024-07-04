@@ -13,8 +13,9 @@ import {
   CodeBracketSquareIcon,
 } from "@heroicons/react/24/solid";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { useNavigate } from "react-router-dom";
 
-function NavItem({ icon, label }) {
+function NavItem({ icon, label, onClick }) {
   return (
     <a href="#">
       <Typography
@@ -22,6 +23,7 @@ function NavItem({ icon, label }) {
         variant="small"
         color="blue-gray"
         className="flex items-center gap-1.5 p-1 font-normal"
+        onClick={onClick}
       >
         {icon}
         {label}
@@ -31,23 +33,43 @@ function NavItem({ icon, label }) {
 }
 
 function NavList() {
+  const navigate = useNavigate();
+
+  const handleClickHome = () => {
+    navigate("/");
+  };
+
+  const handleClickProfile = () => {
+    navigate("/profile");
+  };
+
+  const handleClickQuete = () => {
+    navigate("/quete");
+  };
+  const handleClickHistorique = () => {
+    navigate("/pageHistorique");
+  };
   return (
     <ul className="mb-4 mt-2 flex flex-col gap-3 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-8">
       <NavItem
         icon={<Square3Stack3DIcon className="h-5 w-5" />}
-        label="Pages"
+        label="Historique"
+        onClick={handleClickHistorique}
       />
       <NavItem
         icon={<UserCircleIcon className="h-5 w-5" />}
-        label="Account"
+        label="Previsions"
+        onClick={handleClickHistorique}
       />
       <NavItem
         icon={<PuzzlePieceIcon className="h-5 w-5" />}
-        label="Blocks"
+        label="Profile"
+        onClick={handleClickProfile}
       />
       <NavItem
         icon={<CodeBracketSquareIcon className="h-5 w-5" />}
-        label="Docs"
+        label="Quetes"
+        onClick={handleClickQuete}
       />
     </ul>
   );
@@ -60,13 +82,17 @@ export function NavbarBlurred() {
   React.useEffect(() => {
     window.addEventListener(
       "resize",
-      () => window.innerWidth >= 960 && setOpen(false),
+      () => window.innerWidth >= 960 && setOpen(false)
     );
   }, []);
 
   return (
-    <div className="h-full p-4 bg-gray-100"> {/* Removed background image */}
-      <Navbar className="mx-auto fixed top-4 left-0 right-0 bg-transparent shadow-none z-10"> {/* Added top margin and z-index */}
+    <div className="h-full p-4 bg-gray-100">
+      {" "}
+      {/* Removed background image */}
+      <Navbar className="mx-auto fixed top-4 left-0 right-0 bg-transparent shadow-none z-10">
+        {" "}
+        {/* Added top margin and z-index */}
         <div className="container mx-auto flex items-center justify-between text-blue-gray-900">
           <Typography
             as="a"
@@ -80,12 +106,8 @@ export function NavbarBlurred() {
           <div className="hidden lg:block">
             <NavList />
           </div>
-          <Button
-            color="gray"
-            size="sm"
-            className="hidden lg:inline-block"
-          >
-            Buy Now
+          <Button color="gray" size="sm" className="hidden lg:inline-block">
+            Energinary
           </Button>
           <IconButton
             size="sm"
