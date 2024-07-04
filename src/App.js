@@ -7,7 +7,8 @@ import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
-import AchevementQuete from "./pages/AchevementQuete"
+import PageHistorique from "./pageHistorique"
+import AchevementQuete from "./pages/AchevementQuete";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
   {
     path: "/quete",
     element: <AchevementQuete />,
+  },
+  {
+    path: "/pageHistorique",
+    element: <PageHistorique />,
   },
   {
     path: "/test",
