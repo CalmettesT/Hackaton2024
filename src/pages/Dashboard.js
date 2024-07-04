@@ -14,7 +14,7 @@ function SingleDashboard(cont) {
     const chartData = cont.data.chartData;
     const startingDate = cont.data.chartStart;
     return (
-        <div class="w-screen h-screen text-center text-2xl mt-8 md:mt-20 mb-32 md:mb-0">
+        <div class="w-screen h-screen text-center text-2xl mt-8 md:mt-20 mb-32 md:mb-32">
             <div class="w-auto h-auto md:mx-16 mx-6 mb-8 p-2 border border-black">
                 Votre économie d'énergie
                 <GaugeKwh
