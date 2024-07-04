@@ -22,7 +22,7 @@ function SingleDashboard(cont) {
             <div className="flex flex-wrap w-full">
                 <div className="w-full md:w-1/2 h-auto">
                     <div className="w-auto h-auto md:h-full md:mx-16 mx-6 mb-8 p-2 border border-black flex flex-col">
-                        Votre économie d'énergie
+                        Votre consommation d'énergie
                         <GaugeKwh
                             value={kwh}
                             max={maxKwh}
@@ -71,7 +71,7 @@ export default function Dashboard() {
         </div>
         <Swiper slidesPerView={1} initialSlide={1}>
             <SwiperSlide>
-                <PageHistorique/>
+                <PageHistorique title="Historique de consommation et production"/>
             </SwiperSlide>
             <SwiperSlide>
                 <SingleDashboard
@@ -79,7 +79,7 @@ export default function Dashboard() {
                 />
             </SwiperSlide>
             <SwiperSlide>
-                <PageHistorique/>
+                <PageHistorique title="Prévisions de consommation et production"/>
                 <Meteo/>
             </SwiperSlide>
         </Swiper>

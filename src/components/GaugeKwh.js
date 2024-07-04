@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { styled } from '@mui/system';
 import {
     GaugeContainer,
     GaugeValueArc,
@@ -20,15 +21,19 @@ function GaugePointer() {
     };
     return (
         <g>
-            <circle cx={cx} cy={cy} r={5} fill="red" />
+            <circle cx={cx} cy={cy} r={5} fill="#FFA048" />
             <path
                 d={`M ${cx} ${cy} L ${target.x} ${target.y}`}
-                stroke="red"
+                stroke="#FFA048"
                 strokeWidth={3}
             />
         </g>
     );
 }
+
+const CustomGaugeValueArc = styled(GaugeValueArc)({
+    fill: '#59C19B', 
+});
 
 function Gauge(data) {
     const value = data.value;
@@ -41,9 +46,10 @@ function Gauge(data) {
             valueMax={max}
             value={value}
             height={300}
+            
         >
             <GaugeReferenceArc />
-            <GaugeValueArc />
+            <CustomGaugeValueArc />
             <GaugePointer />
         </GaugeContainer>
     );

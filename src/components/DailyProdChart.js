@@ -26,7 +26,8 @@ function DailyProdLineChart(data) {
       }]}
       series={[
         {
-          data: seriesData
+          data: seriesData,
+          color: "#FFA048"
         },
       ]}
       tooltip={{

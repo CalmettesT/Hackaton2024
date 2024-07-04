@@ -26,7 +26,7 @@ const WeatherComponent = () => {
   if (error) return <div className="text-center mt-10 text-xl text-red-500">Error: {error.message}</div>;
 
   return (
-    <div className="max-w-sm mx-auto mt-10 mb-16 bg-white shadow-md rounded-lg overflow-hidden">
+    <div className="max-w-md mx-6 md:mx-auto mt-10 mb-24 md:mb-16 bg-white shadow-md rounded-lg overflow-hidden">
       <div className="p-6">
         <h2 className="text-2xl font-bold text-gray-800">Météo à {weather.name}</h2>
         <p className="text-gray-600 mt-4">Température: <span className="text-gray-900">{weather.main.temp}°C</span></p>
