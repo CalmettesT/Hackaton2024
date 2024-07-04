@@ -5,7 +5,8 @@ import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Toolti
 // Enregistrer les composants nécessaires pour Chart.js
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-const GraphiqueConso = () => {
+const GraphiqueConso = (prop) => {
+  const title = prop.title;
   const data = {
     labels: ['Janvier', 'Février', 'Mars', 'Avril'], // Assurez-vous que les labels sont définis correctement
     datasets: [
@@ -53,7 +54,7 @@ const GraphiqueConso = () => {
 
   return (
     <div className="w-full max-w-3xl mx-auto p-4">
-      <h2 className="text-center text-xl font-bold mb-4">Historique de consommation/production</h2>
+      <h2 className="text-center text-xl font-bold mb-4">{title}</h2>
       <Bar data={data} options={options} />
       
     </div>

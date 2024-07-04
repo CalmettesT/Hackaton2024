@@ -5,6 +5,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { useNavigate } from "react-router-dom";
 import NavbarPhone from '../components/NavbarPhone';
 import NavbarBlurred from '../components/NavbarBlurred';
+import HeaderPhone from "../components/PhoneHeader"
 
 const UserProfile = () => {
   const [user, setUser] = useState(null);
@@ -37,6 +38,9 @@ const UserProfile = () => {
 
   return (
     <>
+      <div className="block md:hidden mb-12 md:mb-0">
+        <HeaderPhone title="Profil" />
+      </div>
       <div className="hidden md:block w-full">
         <NavbarBlurred />
       </div>
