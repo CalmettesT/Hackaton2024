@@ -1,6 +1,5 @@
 import React from "react";
-import QuestProgress from "./ProgressionQuete";
-import "./Style.css";
+import QuestProgress from "../components/ProgressionQuete";
 import NavbarPhone from "../components/NavbarPhone";
 import NavbarBlurred from "../components/NavbarBlurred";
 
@@ -8,9 +7,6 @@ function App() {
   return (
     <>
     <div className="text-center">
-      <header className="bg-gray-800 p-5 text-white">
-          <h1>Avancement des quêtes</h1>
-        </header>
         <main>
           <QuestProgress />
         </main>

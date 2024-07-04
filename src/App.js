@@ -7,7 +7,7 @@ import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
-import AchevementQuete from "./components/AchevementQuete";
+import AchevementQuete from "./pages/AchevementQuete"
 
 const router = createBrowserRouter([
   {
