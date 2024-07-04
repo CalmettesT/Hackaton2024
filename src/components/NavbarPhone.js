@@ -1,36 +1,77 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   BellAlertIcon as BellAlertIconOutline,
   HomeIcon as HomeIconOutline,
-  UserCircleIcon as UserCircleIconOutline
-} from '@heroicons/react/24/outline';
+  UserCircleIcon as UserCircleIconOutline,
+} from "@heroicons/react/24/outline";
 
 import {
   BellAlertIcon as BellAlertIconSolid,
   HomeIcon as HomeIconSolid,
-  UserCircleIcon as UserCircleIconSolid
-} from '@heroicons/react/24/solid';
+  UserCircleIcon as UserCircleIconSolid,
+} from "@heroicons/react/24/solid";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
-  const [active, setActive] = useState('home');
+  const [active, setActive] = useState("home");
+  const navigate = useNavigate();
+
+  const handleClickHome = () => {
+    navigate("/");
+  };
+
+  const handleClickProfile = () => {
+    navigate("/profile");
+  };
+
+  const handleClickQuete = () => {
+    navigate("/quete");
+  };
 
   return (
     <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 z-10">
       <div className="flex justify-around items-center h-16">
         <NavItem
-          icon={active === 'notifications' ? <BellAlertIconSolid className="h-6 w-6 text-gray-600" /> : <BellAlertIconOutline className="h-6 w-6 text-gray-600" />}
-          isActive={active === 'notifications'}
-          onClick={() => setActive('notifications')}
+          icon={
+            active === "notifications" ? (
+              <BellAlertIconSolid className="h-6 w-6 text-gray-600" />
+            ) : (
+              <BellAlertIconOutline className="h-6 w-6 text-gray-600" />
+            )
+          }
+          isActive={active === "notifications"}
+          onClick={() => {
+            handleClickQuete();
+            setActive("notifications");
+          }}
         />
         <NavItem
-          icon={active === 'home' ? <HomeIconSolid className="h-6 w-6 text-gray-600" /> : <HomeIconOutline className="h-6 w-6 text-gray-600" />}
-          isActive={active === 'home'}
-          onClick={() => setActive('home')}
+          icon={
+            active === "home" ? (
+              <HomeIconSolid className="h-6 w-6 text-gray-600" />
+            ) : (
+              <HomeIconOutline className="h-6 w-6 text-gray-600" />
+            )
+          }
+          isActive={active === "home"}
+          onClick={() => {
+            handleClickHome();
+            setActive("home");
+          }}
         />
         <NavItem
-          icon={active === 'profile' ? <UserCircleIconSolid className="h-6 w-6 text-gray-600" /> : <UserCircleIconOutline className="h-6 w-6 text-gray-600" />}
-          isActive={active === 'profile'}
-          onClick={() => setActive('profile')}
+          icon={
+            active === "profile" ? (
+              <UserCircleIconSolid className="h-6 w-6 text-gray-600" />
+            ) : (
+              <UserCircleIconOutline className="h-6 w-6 text-gray-600" />
+            )
+          }
+          isActive={active === "profile"}
+          onClick={() => {
+            handleClickProfile();
+            setActive("profile");
+          }}
         />
       </div>
     </div>
