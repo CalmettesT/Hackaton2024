@@ -11,6 +11,7 @@ import {
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import AchevementQuete from "./components/AchevementQuete"
+import PageHistorique from "./pageHistorique"
 
 const router = createBrowserRouter([
   {
@@ -38,17 +39,16 @@ const router = createBrowserRouter([
     element: <AchevementQuete />,
   },
   {
+    path: "/pageHistorique",
+    element: <PageHistorique />,
+  },
+  {
     path: "/test",
     element: <Home />,
   },
 ]);
 
-
 export default function App() {
   return <RouterProvider router={router} />;
-
-  return (
-      <AchevementQuete />
-  );
 }
 
