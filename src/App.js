@@ -8,7 +8,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import PageHistorique from "./pageHistorique"
-import AchevementQuete from "./components/AchevementQuete";
+import AchevementQuete from "./pages/AchevementQuete";
 
 const router = createBrowserRouter([
   {
