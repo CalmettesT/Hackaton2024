@@ -7,6 +7,9 @@ import NavbarPhone from '../components/NavbarPhone';
 import NavbarBlurred from '../components/NavbarBlurred';
 import PhoneHeader from '../components/PhoneHeader';
 import PageHistorique from './pageHistorique';
+import Meteo from "../components/Meteo"
+
+
 
 function SingleDashboard(cont) {
     const kwh = cont.data.kwh;
@@ -77,6 +80,7 @@ export default function Dashboard() {
             </SwiperSlide>
             <SwiperSlide>
                 <PageHistorique/>
+                <Meteo/>
             </SwiperSlide>
         </Swiper>
             {/* Navbar for phone (small screens) */}
