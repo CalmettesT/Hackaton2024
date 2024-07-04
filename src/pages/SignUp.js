@@ -1,4 +1,3 @@
-// src/pages/SignUp.js
 import { useState } from "react";
 import { Typography, Input, Button } from "@material-tailwind/react";
 import { EyeSlashIcon, EyeIcon } from "@heroicons/react/24/solid";
@@ -23,7 +22,7 @@ export default function SignUp() {
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       console.log('User created:', userCredential.user);
-      navigate('/'); // Redirige l'utilisateur vers la page d'accueil après la création du compte
+      navigate('/');
     } catch (error) {
       console.error('Error signing up:', error);
       setError(error.message);
