@@ -4,14 +4,11 @@ import Profile from "./pages/Profile";
 import Home from "./pages/Home";
 import MdpOublie from "./pages/MdpOublie";
 import { createRoot } from "react-dom/client";
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
-import AchevementQuete from "./components/AchevementQuete"
 import PageHistorique from "./pageHistorique"
+import AchevementQuete from "./components/AchevementQuete";
 
 const router = createBrowserRouter([
   {
@@ -51,4 +48,3 @@ const router = createBrowserRouter([
 export default function App() {
   return <RouterProvider router={router} />;
 }
-
