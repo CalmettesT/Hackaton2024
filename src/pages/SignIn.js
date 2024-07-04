@@ -5,6 +5,8 @@ import { EyeSlashIcon, EyeIcon } from "@heroicons/react/24/solid";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../model/firebase.config";
 import { useNavigate } from "react-router-dom";
+import NavbarBlurred from '../components/NavbarBlurred';
+import NavbarPhone from '../components/NavbarPhone';
 
 export default function SignIn() {
   const [passwordShown, setPasswordShown] = useState(false);
@@ -29,8 +31,16 @@ export default function SignIn() {
   };
 
   return (
-    <section className="grid text-center h-screen items-center p-8">
-      <div>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+      {/* Navbar for larger screens */}
+      <div className="hidden md:block w-full">
+        <NavbarBlurred />
+      </div>
+      {/* Navbar for smaller screens */}
+      <div className="block md:hidden w-full">
+        <NavbarPhone />
+      </div>
+      <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-md">
         <Typography variant="h3" color="blue-gray" className="mb-2">
           Se Connecter
         </Typography>
@@ -98,17 +108,6 @@ export default function SignIn() {
           <Button type="submit" color="gray" size="lg" className="mt-6" fullWidth>
             Se connecter
           </Button>
-          <div className="!mt-4 flex justify-end">
-            <Typography
-              as="a"
-              href="#"
-              color="blue-gray"
-              variant="small"
-              className="font-medium"
-            >
-              Mot de passe oublié
-            </Typography>
-          </div>
           <Typography
             variant="small"
             color="gray"
@@ -121,6 +120,6 @@ export default function SignIn() {
           </Typography>
         </form>
       </div>
-    </section>
+    </div>
   );
 }

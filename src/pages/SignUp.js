@@ -4,12 +4,16 @@ import { Typography, Input, Button } from "@material-tailwind/react";
 import { EyeSlashIcon, EyeIcon } from "@heroicons/react/24/solid";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../model/firebase.config";
+import { useNavigate } from "react-router-dom";
+import NavbarBlurred from '../components/NavbarBlurred';
+import NavbarPhone from '../components/NavbarPhone';
 
 export default function SignUp() {
   const [passwordShown, setPasswordShown] = useState(false);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const togglePasswordVisiblity = () => setPasswordShown((cur) => !cur);
 
@@ -19,7 +23,7 @@ export default function SignUp() {
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       console.log('User created:', userCredential.user);
-      // Vous pouvez rediriger l'utilisateur ou afficher un message de succès ici
+      navigate('/'); // Redirige l'utilisateur vers la page d'accueil après la création du compte
     } catch (error) {
       console.error('Error signing up:', error);
       setError(error.message);
@@ -27,8 +31,16 @@ export default function SignUp() {
   };
 
   return (
-    <section className="grid text-center h-screen items-center p-8">
-      <div>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+      {/* Navbar for larger screens */}
+      <div className="hidden md:block w-full">
+        <NavbarBlurred />
+      </div>
+      {/* Navbar for smaller screens */}
+      <div className="block md:hidden w-full">
+        <NavbarPhone />
+      </div>
+      <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-md">
         <Typography variant="h3" color="blue-gray" className="mb-2">
           Inscrivez-vous
         </Typography>
@@ -96,29 +108,18 @@ export default function SignUp() {
           <Button type="submit" color="gray" size="lg" className="mt-6" fullWidth>
             Créer un compte
           </Button>
-          <div className="!mt-4 flex justify-end">
-            <Typography
-              as="a"
-              href="#"
-              color="blue-gray"
-              variant="small"
-              className="font-medium"
-            >
-              Mot de passe oublié
-            </Typography>
-          </div>
           <Typography
             variant="small"
             color="gray"
             className="!mt-4 text-center font-normal"
           >
             Déjà inscrit?{" "}
-            <a href="#" className="font-medium text-gray-900">
+            <a href="/signin" className="font-medium text-gray-900">
               Se connecter
             </a>
           </Typography>
         </form>
       </div>
-    </section>
+    </div>
   );
 }

@@ -1,37 +1,36 @@
 // src/pages/Profile.js
 import React, { useEffect, useState } from 'react';
-import { UserCircleIcon, CurrencyDollarIcon, FolderIcon, PencilSquareIcon } from '@heroicons/react/24/solid';
+import { UserCircleIcon, CurrencyDollarIcon, PencilSquareIcon } from '@heroicons/react/24/solid';
 import { auth } from '../model/firebase.config';
 import { onAuthStateChanged } from 'firebase/auth';
 import { useNavigate } from "react-router-dom";
+import NavbarBlurred from '../components/NavbarBlurred';
+import NavbarPhone from '../components/NavbarPhone';
 
 const UserProfile = () => {
   const [user, setUser] = useState(null);
-
-
-
   const navigate = useNavigate();
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
+      if (currentUser) {
+        setUser(currentUser);
+      } else {
+        navigate('/signin');
+      }
     });
 
     return () => unsubscribe();
-  }, []);
+  }, [navigate]);
 
   if (!user) {
     return <p>Loading...</p>;
   }
 
-  const handleClick = () => {
-    navigate("/signup");
-  };
-
   const userData = {
     name: user.displayName || 'John Doe',
     email: user.email,
-    level: 5, // These are still static for now
+    level: 5,
     exp: 200,
     nextLevelExp: 500,
     balance: 120.00
@@ -39,6 +38,14 @@ const UserProfile = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+      {/* Navbar for larger screens */}
+      <div className="hidden md:block w-full">
+        <NavbarBlurred />
+      </div>
+      {/* Navbar for smaller screens */}
+      <div className="block md:hidden w-full">
+        <NavbarPhone />
+      </div>
       <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-md">
         <div className="flex flex-col items-center">
           <UserCircleIcon className="w-24 h-24 text-green-500" />
@@ -60,21 +67,9 @@ const UserProfile = () => {
         </div>
         <div className="flex justify-between mt-6 space-x-4">
           <button className="flex items-center justify-center flex-1 px-4 py-2 text-white bg-green-500 rounded-md hover:bg-green-600">
-            <FolderIcon className="w-5 h-5 mr-2" />
-            Voir les fichiers
-          </button>
-          <button className="flex items-center justify-center flex-1 px-4 py-2 text-white bg-green-500 rounded-md hover:bg-green-600">
             <PencilSquareIcon className="w-5 h-5 mr-2" />
             Modifier le profil
           </button>
-
-
-          <button 
-          onClick={handleClick} 
-          className="flex items-center justify-center w-full px-4 py-2 mt-2 text-white bg-green-500 rounded-md hover:bg-green-600"
-        >
-          Cliquer ici
-        </button>
         </div>
       </div>
     </div>
