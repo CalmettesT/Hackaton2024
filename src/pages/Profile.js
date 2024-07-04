@@ -39,7 +39,7 @@ const UserProfile = () => {
   return (
     <>
       <div className="block md:hidden mb-12 md:mb-0">
-        <HeaderPhone title="Quetes" />
+        <HeaderPhone title="Profil" />
       </div>
       <div className="hidden md:block w-full">
         <NavbarBlurred />

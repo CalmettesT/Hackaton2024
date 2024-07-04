@@ -54,7 +54,7 @@ function SingleDashboard(cont) {
 
 export default function Dashboard() {
     const present = {
-        kwh: 500,
+        kwh: 600,
         maxKwh: 1000,
         economie: 85,
         chartData: [2, 5.5, 8, 10.5, 12],

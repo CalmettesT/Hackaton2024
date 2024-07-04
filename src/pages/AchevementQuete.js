@@ -2,9 +2,9 @@ import React from "react";
 import QuestProgress from "../components/ProgressionQuete";
 import NavbarPhone from "../components/NavbarPhone";
 import NavbarBlurred from "../components/NavbarBlurred";
-import HeaderPhone from "../components/PhoneHeader"
+import HeaderPhone from "../components/PhoneHeader";
 
-function App() {
+function Quetes() {
   return (
     <>
       <div className="block md:hidden mb-12 md:mb-0">
@@ -28,4 +28,4 @@ function App() {
   );
 }
 
-export default App;
+export default Quetes;
