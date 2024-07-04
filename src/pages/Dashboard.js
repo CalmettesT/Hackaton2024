@@ -5,8 +5,8 @@ import GaugeKwh from "../components/GaugeKwh";
 import DailyProdChart from '../components/DailyProdChart';
 import NavbarPhone from '../components/NavbarPhone';
 import NavbarBlurred from '../components/NavbarBlurred';
-import dayjs from 'dayjs';
 import PhoneHeader from '../components/PhoneHeader';
+import PageHistorique from './pageHistorique';
 
 function SingleDashboard(cont) {
     const kwh = cont.data.kwh;
@@ -50,25 +50,11 @@ function SingleDashboard(cont) {
 }
 
 export default function Dashboard() {
-    const past = {
-        kwh: 300,
-        maxKwh: 1000,
-        economie: 85,
-        chartData: [0.2, 1, 2, 2.4, 3.2, 4.5, 5.1],
-        chartStart: dayjs(new Date()).subtract(5, 'day').toDate(),
-    };
     const present = {
         kwh: 500,
         maxKwh: 1000,
         economie: 85,
         chartData: [2, 5.5, 8, 10.5, 12],
-        chartStart: undefined,
-    };
-    const future = {
-        kwh: 700,
-        maxKwh: 1000,
-        economie: 85,
-        chartData: [4, 8, 11, 15, 18.5],
         chartStart: undefined,
     };
     return (
@@ -82,9 +68,7 @@ export default function Dashboard() {
         </div>
         <Swiper slidesPerView={1} initialSlide={1}>
             <SwiperSlide>
-                <SingleDashboard
-                    data={past}
-                />
+                <PageHistorique/>
             </SwiperSlide>
             <SwiperSlide>
                 <SingleDashboard
@@ -92,9 +76,7 @@ export default function Dashboard() {
                 />
             </SwiperSlide>
             <SwiperSlide>
-                <SingleDashboard
-                    data={future}
-                />
+                <PageHistorique/>
             </SwiperSlide>
         </Swiper>
             {/* Navbar for phone (small screens) */}
