@@ -11,7 +11,7 @@ const QuestProgress = () => {
   }, []);
 
   return (
-    <div className="flex flex-col items-center p-4 md:mt-16">
+    <div className="flex flex-col items-center p-4 md:mt-16 mb-16 md:mb-0">
       <ul className="grid grid-cols-1 md:grid-cols-3 gap-4 list-none p-0 w-full sm:w-3/4 lg:w-1/2 xl:w-2/3">
         {quests.map(quest => (
           <li key={quest.id} className="my-4 p-4 border border-gray-300 rounded shadow-sm bg-white">
