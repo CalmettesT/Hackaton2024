@@ -1,4 +1,3 @@
-// src/pages/Profile.js
 import React, { useEffect, useState } from 'react';
 import { UserCircleIcon, CurrencyDollarIcon, PencilSquareIcon } from '@heroicons/react/24/solid';
 import { auth } from '../model/firebase.config';
@@ -13,20 +12,24 @@ const UserProfile = () => {
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
+      if (currentUser) {
+        setUser(currentUser);
+      } else {
+        navigate('/signin');
+      }
     });
 
     return () => unsubscribe();
-  }, []);
+  }, [navigate]);
 
   if (!user) {
     return <p>Loading...</p>;
   }
 
   const userData = {
-    name: user.displayName || 'John Doe',
+    name: user.displayName || 'Sylvain DURIFF',
     email: user.email,
-    level: 5, // These are still static for now
+    level: 5,
     exp: 200,
     nextLevelExp: 500,
     balance: 120.00

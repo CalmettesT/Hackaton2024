@@ -1,4 +1,3 @@
-// src/pages/SignIn.js
 import { useState } from "react";
 import { Typography, Input, Button } from "@material-tailwind/react";
 import { EyeSlashIcon, EyeIcon } from "@heroicons/react/24/solid";
@@ -23,7 +22,7 @@ export default function SignIn() {
     try {
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       console.log('User signed in:', userCredential.user);
-      navigate('/'); // Redirige l'utilisateur vers la page d'accueil après la connexion
+      navigate('/');
     } catch (error) {
       console.error('Error signing in:', error);
       setError(error.message);
