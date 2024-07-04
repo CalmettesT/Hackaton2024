@@ -1,16 +1,12 @@
 import React from "react";
-import QuestProgress from "./ProgressionQuete";
-import "./Style.css";
+import QuestProgress from "../components/ProgressionQuete";
 import NavbarPhone from "../components/NavbarPhone";
 import NavbarBlurred from "../components/NavbarBlurred";
 
 function App() {
   return (
     <>
-      <div className="App">
-        <header className="App-header">
-          <h1>Avancement des quêtes</h1>
-        </header>
+    <div className="text-center">
         <main>
           <QuestProgress />
         </main>
